@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+          --primary-color: #007bff;
+          --primary-hover: #0056b3;
+          --bg-color: #f0f2f5;
+          --card-bg: #ffffff;
+          --border-color: #ccc;
+          --shadow-color: rgba(0, 0, 0, 0.1);
+          --text-color: #333;
+          --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+      
+        * {
+          box-sizing: border-box;
+        }
+      
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: var(--font-family);
+          background: var(--bg-color);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          color: var(--text-color);
+        }
+      
+        form {
+          background: var(--card-bg);
+          padding: 2rem;
+          border-radius: 16px;
+          box-shadow: 0 8px 24px var(--shadow-color);
+          width: 100%;
+          max-width: 420px;
+          display: flex;
+          flex-direction: column;
+          gap: 1.2rem;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          animation: fadeIn 0.6s ease-out;
+        }
+      
+        form:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 32px var(--shadow-color);
+        }
+      
+        input, textarea {
+          padding: 0.9rem 1.1rem;
+          border: 1.5px solid var(--border-color);
+          border-radius: 10px;
+          font-size: 1rem;
+          background: #f9f9f9;
+          transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+      
+        input:focus, textarea:focus {
+          border-color: var(--primary-color);
+          background-color: #fff;
+          outline: none;
+        }
+      
+        textarea {
+          resize: vertical;
+          min-height: 120px;
+        }
+      
+        button {
+          padding: 0.9rem;
+          background-color: var(--primary-color);
+          color: white;
+          border: none;
+          border-radius: 10px;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+      
+        button:hover {
+          background-color: var(--primary-hover);
+          transform: scale(1.02);
+        }
+      
+        button:active {
+          transform: scale(0.98);
+        }
+      
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      
+        @media (max-width: 500px) {
+          form {
+            padding: 1.5rem;
+          }
+      
+          input, textarea {
+            font-size: 0.95rem;
+          }
+      
+          button {
+            font-size: 0.95rem;
+          }
+        }
+      </style>
+      
+</head>
+<body>
+    <form method="POST" action="/chats">
+        <input placeholder="Who are you" name="from" />
+        <textarea name="msg">Write Your Msg here..</textarea>
+        <input placeholder="Add receiver" name="to" />
+        <button>Create Chat</button>
+      </form>
+      
+      
+</body>
+</html>
